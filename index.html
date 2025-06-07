@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hundrella</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f0f0f, #003300);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      cursor: none;
+      position: relative;
+      overflow: hidden;
+      color: #00ff88;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .cursor-dot {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #00ff88;
+      border-radius: 50%;
+      pointer-events: none;
+      box-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+    }
+
+    .binary {
+      position: absolute;
+      color: #00ff88;
+      font-size: 1rem;
+      opacity: 0.2;
+      animation: floatBinary 10s linear infinite;
+    }
+
+    @keyframes floatBinary {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0.2;
+      }
+      100% {
+        transform: translateY(-10vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 1;
+      padding: 0 1rem;
+    }
+
+    .logo {
+      font-size: 4rem;
+      font-weight: bold;
+      text-shadow: 0 0 20px #00ff88, 0 0 40px #007744;
+      opacity: 0;
+      animation: fadeInGlow 2s ease-out forwards, glowPulse 3s ease-in-out infinite;
+    }
+
+    .tagline {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      color: #aaffcc;
+      opacity: 0;
+      animation: slideFadeIn 2s 1s ease-out forwards;
+    }
+
+    .launch-info {
+      position: absolute;
+      bottom: 30px;
+      font-size: 1rem;
+      color: #ccffe6;
+      opacity: 0;
+      animation: slideFadeIn 2s 2s ease-out forwards;
+      padding: 0 1rem;
+      text-align: center;
+    }
+
+    @keyframes fadeInGlow {
+      0% {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes glowPulse {
+      0%, 100% {
+        text-shadow: 0 0 20px #00ff88, 0 0 40px #007744;
+      }
+      50% {
+        text-shadow: 0 0 30px #00ffaa, 0 0 60px #009955;
+      }
+    }
+
+    @keyframes slideFadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .logo {
+        font-size: 2.5rem;
+      }
+
+      .tagline {
+        font-size: 1rem;
+      }
+
+      .launch-info {
+        font-size: 0.9rem;
+        bottom: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <!-- Floating binary numbers -->
+  <script>
+    const body = document.body;
+    for (let i = 0; i < 30; i++) {
+      const bin = document.createElement('div');
+      bin.classList.add('binary');
+      bin.textContent = Math.random() > 0.5 ? '0' : '1';
+      bin.style.left = Math.random() * 100 + 'vw';
+      bin.style.top = Math.random() * 100 + 'vh';
+      bin.style.fontSize = (Math.random() * 1.5 + 0.5) + 'rem';
+      bin.style.animationDuration = (Math.random() * 10 + 5) + 's';
+      body.appendChild(bin);
+    }
+
+    const cursor = document.getElementById('cursorDot');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.pageX + 'px';
+      cursor.style.top = e.pageY + 'px';
+    });
+  </script>
+
+  <div class="container">
+    <div class="logo">Hundrella</div>
+    <div class="tagline">0--1 | 1--100</div>
+  </div>
+  <div class="launch-info">We're building something powerful. Stay tuned.</div>
+</body>
+
+</html>
