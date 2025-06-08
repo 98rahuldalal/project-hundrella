@@ -19,11 +19,11 @@
     }
 
     body {
-      background: linear-gradient(135deg, #0f0f0f, #330000);
+      background: linear-gradient(135deg, #0f0f0f, #003300);
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       cursor: none;
       position: relative;
-      color: #ff8800;
+      color: #00ff88;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -35,17 +35,17 @@
       position: absolute;
       width: 10px;
       height: 10px;
-      background-color: #ff8800;
+      background-color: #00ff88;
       border-radius: 50%;
       pointer-events: none;
-      box-shadow: 0 0 10px #ff8800, 0 0 20px #ff8800;
+      box-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88;
       transform: translate(-50%, -50%);
       z-index: 9999;
     }
 
     .binary {
       position: absolute;
-      color: #ff8800;
+      color: #00ff88;
       font-size: 1rem;
       opacity: 0.2;
       animation: floatBinary 10s linear infinite;
@@ -73,7 +73,7 @@
     .logo {
       font-size: 4rem;
       font-weight: bold;
-      text-shadow: 0 0 20px #ff8800, 0 0 40px #cc6600;
+      text-shadow: 0 0 20px #00ff88, 0 0 40px #007744;
       opacity: 0;
       animation: fadeInGlow 2s ease-out forwards, glowPulse 3s ease-in-out infinite;
     }
@@ -81,7 +81,7 @@
     .tagline {
       font-size: 1.2rem;
       margin-top: 1rem;
-      color: #ffd9b3;
+      color: #aaffcc;
       opacity: 0;
       animation: slideFadeIn 2s 1s ease-out forwards;
     }
@@ -90,7 +90,7 @@
       position: absolute;
       bottom: 30px;
       font-size: 1rem;
-      color: #ffcc99;
+      color: #ccffe6;
       opacity: 0;
       animation: slideFadeIn 2s 2s ease-out forwards;
       padding: 0 1rem;
@@ -110,10 +110,10 @@
 
     @keyframes glowPulse {
       0%, 100% {
-        text-shadow: 0 0 20px #ff8800, 0 0 40px #cc6600;
+        text-shadow: 0 0 20px #00ff88, 0 0 40px #007744;
       }
       50% {
-        text-shadow: 0 0 30px #ffaa33, 0 0 60px #dd7700;
+        text-shadow: 0 0 30px #00ffaa, 0 0 60px #009955;
       }
     }
 
