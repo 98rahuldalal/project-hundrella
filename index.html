@@ -19,11 +19,11 @@
     }
 
     body {
-      background: linear-gradient(135deg, #0f0f0f, #003300);
+      background: linear-gradient(135deg, #0f0f0f, #330000);
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       cursor: none;
       position: relative;
-      color: #00ff88;
+      color: #ff8800;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -35,17 +35,17 @@
       position: absolute;
       width: 10px;
       height: 10px;
-      background-color: #00ff88;
+      background-color: #ff8800;
       border-radius: 50%;
       pointer-events: none;
-      box-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88;
+      box-shadow: 0 0 10px #ff8800, 0 0 20px #ff8800;
       transform: translate(-50%, -50%);
       z-index: 9999;
     }
 
     .binary {
       position: absolute;
-      color: #00ff88;
+      color: #ff8800;
       font-size: 1rem;
       opacity: 0.2;
       animation: floatBinary 10s linear infinite;
@@ -73,7 +73,7 @@
     .logo {
       font-size: 4rem;
       font-weight: bold;
-      text-shadow: 0 0 20px #00ff88, 0 0 40px #007744;
+      text-shadow: 0 0 20px #ff8800, 0 0 40px #cc6600;
       opacity: 0;
       animation: fadeInGlow 2s ease-out forwards, glowPulse 3s ease-in-out infinite;
     }
@@ -81,7 +81,7 @@
     .tagline {
       font-size: 1.2rem;
       margin-top: 1rem;
-      color: #aaffcc;
+      color: #ffd9b3;
       opacity: 0;
       animation: slideFadeIn 2s 1s ease-out forwards;
     }
@@ -90,7 +90,7 @@
       position: absolute;
       bottom: 30px;
       font-size: 1rem;
-      color: #ccffe6;
+      color: #ffcc99;
       opacity: 0;
       animation: slideFadeIn 2s 2s ease-out forwards;
       padding: 0 1rem;
@@ -110,10 +110,10 @@
 
     @keyframes glowPulse {
       0%, 100% {
-        text-shadow: 0 0 20px #00ff88, 0 0 40px #007744;
+        text-shadow: 0 0 20px #ff8800, 0 0 40px #cc6600;
       }
       50% {
-        text-shadow: 0 0 30px #00ffaa, 0 0 60px #009955;
+        text-shadow: 0 0 30px #ffaa33, 0 0 60px #dd7700;
       }
     }
 
@@ -148,6 +148,7 @@
 <body>
   <div class="cursor-dot" id="cursorDot"></div>
 
+  <!-- Floating binary numbers -->
   <script>
     const body = document.body;
     for (let i = 0; i < 30; i++) {
