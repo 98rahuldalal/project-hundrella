@@ -211,6 +211,19 @@
         btn.textContent = "🔇";
       }
     }
+  
+
+    document.addEventListener('visibilitychange', () => {
+  const music = document.getElementById('bg-music');
+  const btn = document.querySelector('.music-btn');
+  if (document.hidden && !music.paused) {
+    music.pause();
+    btn.textContent = '🔇';
+  } else if (!document.hidden && music.paused) {
+    music.play();
+    btn.textContent = '🔊';
+  }
+});
   </script>
 </body>
 
