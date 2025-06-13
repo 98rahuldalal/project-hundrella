@@ -97,6 +97,26 @@
       text-align: center;
     }
 
+    .music-btn {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background-color: transparent;
+      border: 1px solid #00ff88;
+      color: #00ff88;
+      padding: 5px 10px;
+      font-size: 0.9rem;
+      cursor: none;
+      border-radius: 5px;
+      z-index: 10000;
+      transition: all 0.3s ease;
+    }
+
+    .music-btn:hover {
+      background-color: #00ff8855;
+      box-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88;
+    }
+
     @keyframes fadeInGlow {
       0% {
         opacity: 0;
@@ -148,6 +168,18 @@
 <body>
   <div class="cursor-dot" id="cursorDot"></div>
 
+  <div class="container">
+    <div class="logo">Hundrella</div>
+    <div class="tagline">0--1 | 1--100</div>
+  </div>
+  <div class="launch-info">We're building something powerful. Stay tuned.</div>
+
+  <button class="music-btn" onclick="toggleMusic()" title="Play / Pause Music">🔇</button>
+  <audio id="bg-music" autoplay muted loop>
+    <source src="background.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
   <script>
     const body = document.body;
     for (let i = 0; i < 30; i++) {
@@ -166,13 +198,20 @@
       cursor.style.left = e.pageX + 'px';
       cursor.style.top = e.pageY + 'px';
     });
-  </script>
 
-  <div class="container">
-    <div class="logo">Hundrella</div>
-    <div class="tagline">0--1 | 1--100</div>
-  </div>
-  <div class="launch-info">We're building something powerful. Stay tuned.</div>
+    function toggleMusic() {
+      const music = document.getElementById("bg-music");
+      const btn = document.querySelector(".music-btn");
+      if (music.paused) {
+        music.muted = false;
+        music.play();
+        btn.textContent = "🔊";
+      } else {
+        music.pause();
+        btn.textContent = "🔇";
+      }
+    }
+  </script>
 </body>
 
 </html>
