@@ -32,6 +32,8 @@
     }
 
     .cursor-dot {
+      opacity: 0;
+      transition: opacity 0.2s ease;
       position: absolute;
       width: 10px;
       height: 10px;
@@ -143,9 +145,12 @@
       }
     }
   </style>
+  
 </head>
 
 <body>
+  
+  
   <div class="cursor-dot" id="cursorDot"></div>
 
   <div class="container">
@@ -171,8 +176,16 @@
     document.addEventListener('mousemove', e => {
       cursor.style.left = e.pageX + 'px';
       cursor.style.top = e.pageY + 'px';
+      cursor.style.opacity = 1;
+    });
+      
+      document.addEventListener('mouseleave', () => {
+      cursor.style.opacity = 0;
     });
   </script>
+  
+  
+  
 </body>
 
 </html>
