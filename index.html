@@ -198,7 +198,24 @@
   </script>
   
   
-  
+
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+  <script>
+    const tags = ["hundrella", "oms", "pms", "ems", "trading systems", "financial architecture", "algo trading"];
+    const fuse = new Fuse(tags, {
+      includeScore: true,
+      threshold: 0.4
+    });
+
+    function searchTag(input) {
+      const result = fuse.search(input.toLowerCase());
+      if (result.length > 0) {
+        alert("Did you mean: " + result[0].item);
+      } else {
+        alert("No close match found.");
+      }
+    }
+  </script>
 </body>
 
 </html>
